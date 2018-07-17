@@ -3,8 +3,11 @@ package com.farman.restproject.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,4 +43,11 @@ public class CountryController {
 	public long getCount() {
 		return countryRepository.count();
 	}
+
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public Country createCountry(@RequestBody Country country) {
+		return countryRepository.save(country);
+	}
+
 }

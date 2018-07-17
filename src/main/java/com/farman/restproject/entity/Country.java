@@ -18,11 +18,9 @@ public class Country implements Serializable {
 	private String countryId;
 
 	@Column(nullable = false, updatable = false)
-	@NotBlank
 	private String countryName;
 
 	@Column(nullable = false, updatable = false)
-	@NotBlank
 	private int regionId;
 
 	public String getCountryId() {

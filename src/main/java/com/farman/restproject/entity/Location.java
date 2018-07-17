@@ -23,7 +23,6 @@ public class Location implements Serializable {
 	private int locationId;
 	private String streetAddress;
 	private String postalCode;
-	@NonNull
 	private String city;
 	private String stateProvince;
 	private String countryId;
