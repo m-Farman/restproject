@@ -47,7 +47,7 @@ public class Employee implements Serializable {
 	
 	private int managerId;
 	
-	private int departmentId;
+	private long departmentId;
 
 
 	public int getEmployeeId() {
@@ -90,7 +90,7 @@ public class Employee implements Serializable {
 		return managerId;
 	}
 
-	public int getDepartmentId() {
+	public long getDepartmentId() {
 		return departmentId;
 	}
 

@@ -1,5 +1,6 @@
 package com.farman.restproject.repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class EmpRespository {
 
 	public List<ManagerDetails> getManagerTreeOfEmployee(int employeeId) {
 
-		return jdbcTemplate.query(empTreeQuery, new Object[] { employeeId }, (rs,rowNum)->new ManagerDetails(rs.getInt("manager_id"),rs.getString("job_id")));
+		return jdbcTemplate.query(empTreeQuery, new Object[] { employeeId },
+				(rs, rowNum) -> new ManagerDetails(rs.getInt("manager_id"), rs.getString("job_id")));
 	}
 }
