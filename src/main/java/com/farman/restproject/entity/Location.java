@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "Location", schema = "HR")
+@Table(name = "Locations", schema = "HR")
 public class Location implements Serializable {
 
 	private static final long serialVersionUID = 2869048595912286846L;

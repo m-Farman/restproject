@@ -1,13 +1,16 @@
 package com.farman.restproject.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Regions", schema = "HR")
-public class Regions {
+public class Regions implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	@Id
 	private Long regionId;
 	private String regionName;
