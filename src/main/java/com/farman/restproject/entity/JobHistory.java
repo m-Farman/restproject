@@ -3,10 +3,8 @@ package com.farman.restproject.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,12 +16,8 @@ public class JobHistory implements Serializable {
 
 	private static final long serialVersionUID = -1492436029415365650L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int employeeId;
-	@NotNull
-	@Temporal(TemporalType.DATE)
-	private Date startDate;
+	@EmbeddedId
+	private JobHistoryPK primaryK;
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
@@ -31,15 +25,7 @@ public class JobHistory implements Serializable {
 	@NotNull
 	private String jobId;
 
-	private int departmentId;
-
-	public int getEmployeeId() {
-		return employeeId;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
+	private Integer departmentId;
 
 	public Date getEndDate() {
 		return endDate;
@@ -49,7 +35,7 @@ public class JobHistory implements Serializable {
 		return jobId;
 	}
 
-	public int getDepartmentId() {
+	public Integer getDepartmentId() {
 		return departmentId;
 	}
 

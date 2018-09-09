@@ -10,4 +10,6 @@ public interface EmployeeService {
 
 	public List<Employee> getTopNSalariedEmployee(int noOfEmployees) throws EntityNotFoundException;
 
+	public Employee getEmployeeWithId(Long employeeId) throws EntityNotFoundException;
+
 }

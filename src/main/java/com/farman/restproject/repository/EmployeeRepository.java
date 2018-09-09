@@ -13,6 +13,10 @@ import com.farman.restproject.entity.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	@Query("Select distinct p.salary from Employee p where p.departmentId in (:dpIds)")
-	List<Long> findByDepartmentIdIn(@Param("dpIds") List<Long> deaprtmentId);
+	List<Long> findByDepartmentIds(@Param("dpIds") List<Long> deaprtmentId);
+
+	List<Employee> findByDepartmentIdIsIn(List<Long> deaprtmentId);
+	
+	Employee findByEmployeeId(Long employeeId);
 
 }
