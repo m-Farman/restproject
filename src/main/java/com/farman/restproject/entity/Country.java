@@ -1,10 +1,14 @@
 package com.farman.restproject.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -22,6 +26,21 @@ public class Country implements Serializable {
 
 	@Column(nullable = false, updatable = false)
 	private int regionId;
+
+	@OneToMany
+	// @JoinTable(name = "mapped", joinColumns = { @JoinColumn(name = "c_id") },
+	// inverseJoinColumns = {
+	// @JoinColumn(name = "l_id") })
+	@JoinColumn(name = "COUNTRY_ID")
+	private List<Location> locations;
+
+	public List<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
+	}
 
 	public String getCountryId() {
 		return countryId;

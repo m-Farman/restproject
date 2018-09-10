@@ -44,7 +44,6 @@ public class CountryController {
 		return countryRepository.count();
 	}
 
-	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Country createCountry(@RequestBody Country country) {
 		return countryRepository.save(country);
