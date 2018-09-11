@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> getTopNSalariedEmployee(int noOfEmployees) throws EntityNotFoundException {
-		return null;
+		return employeeRepository.geTopNSalariedEmployee(noOfEmployees);
 	}
 
 	@Override

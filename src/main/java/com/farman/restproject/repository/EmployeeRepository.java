@@ -15,8 +15,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	@Query("Select distinct p.salary from Employee p where p.departmentId in (:dpIds)")
 	List<Long> findByDepartmentIds(@Param("dpIds") List<Long> deaprtmentId);
 
+	@Query(value = "select * from (Select * from employees order by salary desc) where rownum<= :limit", nativeQuery = true)
+	List<Employee> geTopNSalariedEmployee(@Param("limit") int n);
+
 	List<Employee> findByDepartmentIdIsIn(List<Long> deaprtmentId);
-	
+
 	Employee findByEmployeeId(Long employeeId);
 
 }

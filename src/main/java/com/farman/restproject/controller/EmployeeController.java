@@ -57,4 +57,10 @@ public class EmployeeController {
 		return employeeService.getEmployeeWithId(Long.parseLong(empId));
 
 	}
+
+	@RequestMapping(value = "/topSalaried", method = RequestMethod.GET)
+	public List<Employee> getTopSalariedEmployee(@RequestParam("No") String no) {
+		return employeeService.getTopNSalariedEmployee(Integer.parseInt(no));
+
+	}
 }

@@ -19,10 +19,8 @@ public class JobHistory implements Serializable {
 	@EmbeddedId
 	private JobHistoryPK primaryK;
 
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
-	@NotNull
 	private String jobId;
 
 	private Integer departmentId;
