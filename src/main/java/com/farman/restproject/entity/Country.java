@@ -12,8 +12,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "Countries")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "countryId")
 public class Country implements Serializable {
 
 	private static final long serialVersionUID = -7496700346108994214L;
@@ -27,11 +33,12 @@ public class Country implements Serializable {
 	@Column(nullable = false, updatable = false)
 	private int regionId;
 
-	@OneToMany
+	@OneToMany(mappedBy = "country")
 	// @JoinTable(name = "mapped", joinColumns = { @JoinColumn(name = "c_id") },
 	// inverseJoinColumns = {
 	// @JoinColumn(name = "l_id") })
-	@JoinColumn(name = "COUNTRY_ID")
+	// @JoinColumn(name = "COUNTRY_ID")
+//	@JsonBackReference
 	private List<Location> locations;
 
 	public List<Location> getLocations() {

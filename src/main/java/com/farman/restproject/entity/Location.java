@@ -1,7 +1,6 @@
 package com.farman.restproject.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +12,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.lang.NonNull;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "Locations", schema = "HR")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "locationId")
 public class Location implements Serializable {
 
 	private static final long serialVersionUID = 2869048595912286846L;
@@ -34,6 +35,7 @@ public class Location implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "country_Id", insertable = false, updatable = false)
+	// @JsonManagedReference
 	private Country country;
 
 	public Long getLocationId() {
