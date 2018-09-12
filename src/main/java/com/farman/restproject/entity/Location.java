@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "Locations", schema = "HR")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "locationId")
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property = "locationId")
 public class Location implements Serializable {
 
 	private static final long serialVersionUID = 2869048595912286846L;

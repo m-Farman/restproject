@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.springframework.lang.NonNull;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 @Table(name = "Employees", schema = "HR")
@@ -52,7 +52,7 @@ public class Employee implements Serializable {
 	private Long departmentId;
 
 	@OneToMany
-	@JoinColumn(name = "employeeId")
+	@JoinColumn(name = "employee_Id")
 	private List<JobHistory> histories;
 
 	public List<JobHistory> getHistories() {
