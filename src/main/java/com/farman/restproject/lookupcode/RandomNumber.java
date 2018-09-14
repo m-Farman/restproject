@@ -1,5 +1,7 @@
 package com.farman.restproject.lookupcode;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 
 public class RandomNumber {
@@ -42,5 +44,12 @@ public class RandomNumber {
 	public static void getStreamOfRandomIntsWithRange(int num, int min, int max) {
 		Random random = new Random();
 		random.ints(num, min, max).sorted().forEach(System.out::println);
+	}
+
+	public static String getCurrentPath() {
+		Path currentRelativePath = Paths.get("");
+		String s = currentRelativePath.toAbsolutePath().toString();
+		System.out.println("Current relative path is: " + s);
+		return s;
 	}
 }
