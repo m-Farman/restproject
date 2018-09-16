@@ -20,11 +20,10 @@ public class GreetingController {
 	private final AtomicLong counter = new AtomicLong();
 
 	@RequestMapping("/greeting")
-	public com.farman.restproject.beans.Greeting getGreeting(@RequestParam(value = "name", defaultValue = "User") String name) {
+	public com.farman.restproject.beans.Greeting getGreeting(
+			@RequestParam(value = "name", defaultValue = "User") String name) {
 		final String[] greets = { "Hello !", "Hey ,", "You Bitch ;)", "Great ", "Highness " };
 		return new Greeting(counter.incrementAndGet(), greets[ThreadLocalRandom.current().nextInt(0, 4)] + " " + name);
 	}
 
-	
-	
 }

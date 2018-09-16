@@ -21,7 +21,7 @@ public class FtlServiceImpl implements FtlService {
 
 	@Override
 	public String getPaymentAvailables() {
-		Template template= null;
+		Template template = null;
 		try {
 			template = ftlConfig.getTemplate("src/main/resources/templates/paymentTypes.ftl");
 		} catch (IOException e) {
@@ -32,13 +32,17 @@ public class FtlServiceImpl implements FtlService {
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("message", "Please find the details!");
 
-		HashMap<String, String> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap<>();
 		map.put("amex", "American Express");
 		map.put("cash", "Cash");
 		map.put("mc", "Master Cards");
 		map.put("visa", "Visa Cards");
 		map.put("wallet", "All E Wallets");
 
+		HashMap<String, String> hashMap = new HashMap<>();
+		hashMap.put("test", "Yo! I got here successfully");
+		map.put("check", hashMap);
+		
 		data.put("payments", map);
 
 		Writer out = new StringWriter();
